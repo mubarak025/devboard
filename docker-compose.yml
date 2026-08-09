@@ -44,7 +44,7 @@ services:
 
   frontend:
     build: ./frontend
-    image: trainwithshubham/devboard-frontend:${IMAGE_TAG:-latest}
+    image: mubarak28/devboard-frontend:${IMAGE_TAG:-latest}
     depends_on:
       - backend
     ports:
