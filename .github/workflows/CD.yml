@@ -9,6 +9,7 @@ on:
 
 jobs:
   deploy: 
+    if: github.events.workflow_run.conclusion == 'success'
     runs-on: self-hosted
     steps:
       - name: code checkout
@@ -25,7 +26,7 @@ jobs:
 
       - name: Deploy the containers with Docker compose
         run: 
-        docker compose pull 
-        docker compose up -d
+          docker compose pull 
+          docker compose up -d
 
 
