@@ -6,7 +6,7 @@ name: Go Linter
 on:
   workflow_dispatch:
 
-  jobs:
+jobs:
     code-format:
       runs-on: ubuntu-latest
       strategy:
