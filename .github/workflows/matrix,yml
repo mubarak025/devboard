@@ -1,0 +1,31 @@
+# goal to install ultiple versions of Go and do linting for multiple versions
+
+
+name: Go Linter
+
+on:
+  workflow_dispatch:
+
+  jobs:
+    code-format:
+      runs-on: ubuntu-latest
+      strategy:
+        fail-fast: false
+        matrix:
+          go: [ "1.22", "1.23", "1.24" ]
+      steps:
+          - name: Setup Go
+            uses: actions/setup-go@v6
+            with:
+                go-version: ${{ matrix.go }}
+                go-version-file: 'go.mod'
+                check-latest: false
+                cache-dependency-path: go.sum
+            
+          - name: run go Formatter
+            run: go fmt
+              working-directory: backend
+
+          - name: Run Linter
+            run: go vet ./...
+            working-directory: backend
