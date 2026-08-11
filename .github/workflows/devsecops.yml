@@ -7,6 +7,11 @@ on:
         branches: [advanced]
         
 jobs:
-
+     
+     # code stage (with shift left)
     code-qulity:
         uses: ./.github/workflows/code-quality.yml
+
+    # secret scanning
+    secret-scanning:
+        uses: ./.github/workflows/secret-scanning.yml
