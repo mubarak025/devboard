@@ -35,7 +35,7 @@ jobs:
         uses: ./.github/workflows/code.test.yml
     # push to docker-hub
     docker-push:
-        needs: [code-qulity,code-test, secret-scanning, dependency-scan, docker-checks, sonarqube-scan, code-test]
+        needs: [code-qulity,code-test, secret-scanning, dependency-scan, docker-checks, sonarqube-scan]
         uses: ./.github/workflows/Dockerpush.yml
         secrets: inherit
 
@@ -48,7 +48,8 @@ jobs:
     
     dast-scan:
         needs: [deploy]
-        uses: ./.github/worflows/dast.yml
+        uses: ./.github/workflows/dast.yml
+
         secrets: inherit
 
         
