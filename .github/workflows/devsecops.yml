@@ -23,6 +23,5 @@ jobs:
     # docker file lint and scan
     docker-checks:
         uses: ./.github/workflows/docker-scans.yml
-        secrets: 
-          DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
-          DOCKER_USERNAME: ${{ vars.DOCKER_USERNAME }}
+        secrets: inherit 
+
