@@ -19,3 +19,7 @@ jobs:
     # dependency check
     dependency-scan:
         uses: ./.github/workflows/dependency-scan.yml
+
+    # docker file lint and scan
+    docker-checks:
+        uses: ./.github/workflows/docker-scans.yml
